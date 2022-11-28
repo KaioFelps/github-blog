@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 
 	:focus {
 	    outline: 2px solid ${(p) => p.theme.brand};
-		transition: outline 150ms;
+		transition: outline 50ms;
 	}
 
 	body {
@@ -25,6 +25,8 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	input:is([type="text"]) {
+		width: 100%;
+		border: 1px solid ${(p) => p.theme["base-600"]};
 		border-radius: 6px;
 		padding: 12px 16px;
 		background: ${(p) => p.theme["base-1000"]};
@@ -38,7 +40,9 @@ export const GlobalStyle = createGlobalStyle`
 
 		&:focus {
 			color: ${(p) => p.theme.white};
+			border-color: ${(p) => p.theme.brand};
 			outline-width: 1px;
+			transition: border 150ms;
 		}
 	}
 
@@ -55,5 +59,10 @@ export const GlobalStyle = createGlobalStyle`
 		&:hover {
 			filter: brightness(0.9);
 		}
+	}
+
+	h3 {
+		font: ${(p) => p.theme["title-s"]};
+		color: ${(p) => p.theme["base-200"]};
 	}
 `;

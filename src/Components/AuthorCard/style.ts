@@ -13,13 +13,20 @@ export const AuthorInfoHeader = styled.div`
     color: ${(p) => p.theme["base-100"]};
   }
 
-  a svg {
-    margin-left: 8px;
+  a {
+    line-height: 0;
+
+    svg {
+      line-height: 0;
+      margin-left: 8px;
+      stroke-width: 1.5px;
+    }
   }
 `;
 
 export const AuthorInfoContent = styled.span`
   display: flex;
+  flex-wrap: wrap;
   gap: 24px;
   margin-top: 24px;
 
@@ -59,6 +66,13 @@ export const ProfilePicture = styled.img`
   height: 148px;
   border-radius: 8px;
   margin-right: 32px;
+
+  @media (max-width: 768px) {
+    width: 50%;
+    height: 100%;
+    align-self: center;
+    border-radius: 999px;
+  }
 `;
 
 export const Layout = styled.section`
@@ -71,4 +85,8 @@ export const Layout = styled.section`
   position: relative;
 
   display: flex;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
