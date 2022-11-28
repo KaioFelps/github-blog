@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 	* {
@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	body {
-        background: ${(p) => p.theme['base-900']};
+        background: ${(p) => p.theme["base-900"]};
         color: ${(p) => p.theme.white};
 	}
 
@@ -24,21 +24,16 @@ export const GlobalStyle = createGlobalStyle`
 	    -webkit-font-smoothing: antialiased;
 	}
 
-	a {
-		font: ${(p) => p.theme['text-link']};
-		color: ${(p) => p.theme.brand};
-	}
-
 	input:is([type="text"]) {
 		border-radius: 6px;
 		padding: 12px 16px;
-		background: ${(p) => p.theme['base-1000']};
-		color: ${(p) => p.theme['base-500']};
-		font: ${(p) => p.theme['text-m']};
+		background: ${(p) => p.theme["base-1000"]};
+		color: ${(p) => p.theme["base-500"]};
+		font: ${(p) => p.theme["text-m"]};
 
 		&::placeholder {
-			color: ${(p) => p.theme['base-500']};
-			font: ${(p) => p.theme['text-m']};
+			color: ${(p) => p.theme["base-500"]};
+			font: ${(p) => p.theme["text-m"]};
 		}
 
 		&:focus {
@@ -46,4 +41,19 @@ export const GlobalStyle = createGlobalStyle`
 			outline-width: 1px;
 		}
 	}
-`
+
+	a {
+		font: ${(p) => p.theme["text-link"]};
+		color: ${(p) => p.theme.brand};
+		text-decoration: none;
+		height: fit-content;
+
+		border-radius: 1px;
+		outline-width: 1px;
+		outline-offset: 3px;
+
+		&:hover {
+			filter: brightness(0.9);
+		}
+	}
+`;
