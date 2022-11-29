@@ -57,12 +57,7 @@ export function AuthorCard() {
           </a>
         </AuthorInfoHeader>
 
-        <AuthorBio>
-          {/* {userInfos.bio} */}
-          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-          viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
-          pulvinar vel mass.
-        </AuthorBio>
+        <AuthorBio>{userInfos.bio}</AuthorBio>
 
         <AuthorInfoContent>
           <span>

@@ -8,6 +8,7 @@ export const PostsContainer = styled.div`
   gap: 32px;
 
   margin-top: 48px;
+  margin-bottom: 48px;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;

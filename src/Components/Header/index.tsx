@@ -5,9 +5,9 @@ import {
   LeftCircle,
   LogoHolder,
   RightCircle,
-} from './style'
+} from "./style";
 
-import logo from '/logo.svg'
+import logo from "/logo.svg";
 
 export function Header() {
   return (
@@ -20,5 +20,5 @@ export function Header() {
         <img src={logo} draggable={false} alt="Github Blog" />
       </LogoHolder>
     </HeaderContainer>
-  )
+  );
 }

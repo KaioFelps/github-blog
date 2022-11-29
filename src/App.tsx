@@ -1,4 +1,3 @@
-import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { PostsContextProvider } from "./Contexts/PostsContext";
 import { Router } from "./router";
@@ -10,11 +9,9 @@ export function App() {
     <ThemeProvider theme={DarkMode}>
       <GlobalStyle />
 
-      <BrowserRouter>
-        <PostsContextProvider>
-          <Router />
-        </PostsContextProvider>
-      </BrowserRouter>
+      <PostsContextProvider>
+        <Router />
+      </PostsContextProvider>
     </ThemeProvider>
   );
 }
