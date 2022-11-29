@@ -1,25 +1,49 @@
+import axios from "axios";
+import { useCallback, useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
-import { useContextSelector } from "use-context-selector";
 import { PostHeader } from "../../Components/PostHeader";
-import { PostsContext } from "../../Contexts/PostsContext";
 import { Layout, ArticleContainer } from "./style";
 
+type PostProps = {
+  authorGithub: string;
+  createdAt: string;
+  githubLink: string;
+  title: string;
+  body: string;
+};
+
 export function Article() {
-  const { posts } = useContextSelector(PostsContext, ({ posts }) => {
-    return {
-      posts,
-    };
-  });
+  const [post, setPost] = useState({} as PostProps);
   const { slug } = useParams();
-  const activeArticle = posts.find((post) => post.id === Number(slug));
+
+  const fetchSpecificPost = useCallback(async () => {
+    const url = `https://api.github.com/repos/kaiofelps/github-blog/issues/${Number(
+      slug
+    )}`;
+    const res = await axios.get(url);
+    const data = await res.data;
+
+    setPost({
+      title: data.title,
+      createdAt: data.created_at,
+      githubLink: data.html_url,
+      body: data.body,
+      authorGithub: data.user.login,
+    });
+  }, [slug]);
+
+  useEffect(() => {
+    fetchSpecificPost();
+  }, [fetchSpecificPost]);
+
   return (
     <Layout>
-      <PostHeader />
+      <PostHeader post={post} />
 
       <ArticleContainer>
         <ReactMarkdown>
-          {activeArticle ? activeArticle.lead : "Artigo não encontrado."}
+          {post.body ? post.body : "Artigo não encontrado."}
         </ReactMarkdown>
       </ArticleContainer>
     </Layout>
