@@ -42,7 +42,8 @@ export const Layout = styled.section`
   border-radius: 10px;
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
   padding: 32px;
-  transform: translateY(-50%);
+  margin-top: -85px;
+  position: relative;
 
   h1 {
     font: ${(p) => p.theme["title-l"]};

@@ -41,7 +41,7 @@ export function Blog() {
               createdAt={post.createdAt}
               lead={post.lead}
               title={post.title}
-              to={"/"}
+              to={`/post/${post.id}`}
               key={post.id}
             />
           );

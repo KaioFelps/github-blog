@@ -7,6 +7,7 @@ type PostProps = {
   createdAt: string;
   lead: string;
   id: number;
+  githubUrl: string;
 };
 
 type PostsContextProps = {
@@ -31,11 +32,12 @@ export function PostsContextProvider({ children }: PostsContextProviderProps) {
     const postsHolder: PostProps[] = [];
 
     data.items.forEach((post: any) => {
-      const obj = {
+      const obj: PostProps = {
         title: post.title,
         createdAt: post.created_at,
         lead: post.body,
         id: post.number,
+        githubUrl: post.html_url,
       };
 
       postsHolder.push(obj);
