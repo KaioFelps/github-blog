@@ -9,7 +9,7 @@ export const WarningContainer = styled.span`
   justify-content: center;
   align-items: center;
 
-  color: hsla(358, 99.8%, 38.3%, 1);
+  color: hsl(358deg 60% 55%);
   background: hsla(358, 99.8%, 38.3%, 0.15);
   border: 2px solid hsl(358, 65%, 40.4%);
 
