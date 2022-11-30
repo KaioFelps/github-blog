@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import { PostHeader } from "../../Components/PostHeader";
+import { Warning } from "../../Components/Warning";
 import { Layout, ArticleContainer } from "./style";
 
 type PostProps = {
@@ -37,6 +38,10 @@ export function Article() {
   useEffect(() => {
     fetchSpecificPost();
   }, [fetchSpecificPost]);
+
+  if (!post) {
+    return <Warning>Post indisponível ou descarregado.</Warning>;
+  }
 
   return (
     <>
