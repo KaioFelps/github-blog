@@ -7,7 +7,7 @@ import { Footer, Header, Layout } from "./style";
 
 type PostProps = {
   authorGithub: string;
-  createdAt: string;
+  createdAt: string | undefined;
   githubLink: string;
   title: string;
   body: string;
