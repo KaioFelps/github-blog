@@ -48,7 +48,7 @@ export function Article() {
             post.title
           )}.`}
         />
-        <link rel="canonical" href="/" />
+        <link rel="canonical" href={`/post/${slug}`} />
       </Helmet>
       <Layout>
         <PostHeader post={post} />
