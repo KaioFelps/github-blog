@@ -7,7 +7,7 @@ import {
   RightCircle,
 } from "./style";
 
-import logo from "/logo.svg";
+import logo from "../../../public/logo.svg";
 
 export function Header() {
   return (
