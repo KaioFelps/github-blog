@@ -12,7 +12,7 @@ type PostProps = {
 
 type PostsContextProps = {
   posts: PostProps[];
-  fetchPosts: () => Promise<void>;
+  fetchPosts: (query?: string) => Promise<void>;
 };
 
 type PostsContextProviderProps = {
@@ -24,8 +24,10 @@ export const PostsContext = createContext({} as PostsContextProps);
 export function PostsContextProvider({ children }: PostsContextProviderProps) {
   const [posts, setPosts] = useState<PostProps[]>([]);
 
-  const fetchPosts = useCallback(async () => {
-    const url = `https://api.github.com/search/issues?q=${""}repo:kaiofelps/github-blog`;
+  const fetchPosts = useCallback(async (query?: string) => {
+    const url = `https://api.github.com/search/issues?q=${
+      query || ""
+    }repo:kaiofelps/github-blog`;
     const res = await axios.get(url);
     const data = await res.data;
 

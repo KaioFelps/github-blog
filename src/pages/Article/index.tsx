@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import { PostHeader } from "../../Components/PostHeader";
@@ -38,14 +39,26 @@ export function Article() {
   }, [fetchSpecificPost]);
 
   return (
-    <Layout>
-      <PostHeader post={post} />
+    <>
+      <Helmet>
+        <title>Blog: {String(post.title)}</title>
+        <meta
+          name="description"
+          content={`Postagem do blog GitHub Blog, falando sobre ${String(
+            post.title
+          )}.`}
+        />
+        <link rel="canonical" href="/" />
+      </Helmet>
+      <Layout>
+        <PostHeader post={post} />
 
-      <ArticleContainer>
-        <ReactMarkdown>
-          {post.body ? post.body : "Artigo não encontrado."}
-        </ReactMarkdown>
-      </ArticleContainer>
-    </Layout>
+        <ArticleContainer>
+          <ReactMarkdown>
+            {post.body ? post.body : "Artigo não encontrado."}
+          </ReactMarkdown>
+        </ArticleContainer>
+      </Layout>
+    </>
   );
 }

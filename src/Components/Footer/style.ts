@@ -4,7 +4,7 @@ export const FooterContainer = styled.footer`
   width: calc(100% - 40px);
   padding: 16px 0;
   max-width: 864px;
-  margin: 0 auto;
+  margin: 112px auto 0 auto;
 
   background: ${(p) => p.theme["base-800"]};
   box-shadow: 0 0 0 100vmax ${(p) => p.theme["base-800"]};

@@ -1,14 +1,26 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const PostsContainer = styled.div`
+type PostsContainerProps = {
+  noPostFound: boolean;
+};
+
+export const PostsContainer = styled.div<PostsContainerProps>`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+
+  ${(p) =>
+    p.noPostFound
+      ? css`
+          grid-template-columns: 1fr;
+        `
+      : css`
+          grid-template-columns: repeat(2, 1fr);
+        `}
+
   grid-auto-rows: min-content;
   gap: 32px;
 
   margin-top: 48px;
-  margin-bottom: 48px;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
